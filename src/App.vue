@@ -22,15 +22,24 @@
         <span v-else class="blue">{{item}} - {{index}}</span>
       </li>
     </ol> -->
-    <button-counter :prop-name="a">
+    <!-- <button-counter :prop-name="a">
     <span>A</span>
   </button-counter>
     <button-counter prop-name="c"><span>B</span></button-counter>
     <button-counter></button-counter>
     <button-counter></button-counter>
-    <button-counter></button-counter>
+    <button-counter></button-counter> -->
 
 
+     app
+
+     <router-link to="/foo">Go to Foo</router-link>
+     <router-link to="/bar">Go to Bar</router-link>
+
+    <button @click="gotoByurl('/foo')">Go to Foo</button>
+    <button @click="gotoByurl('/bar')">Go to Bar</button>
+
+     <router-view></router-view>
 
 
   </div>
@@ -59,34 +68,39 @@ export default {
 
   methods:{
 
-    addUser(){
-      this.userList.push(this.name)
-      this.name = ''
-    },
-    changeMsg(){
-      this.msg = "fyh"
-    },
-
-    getFullName(){
-      return this.firstname+' '+this.lastname
-    }
-  },
-
-  computed:{
-    fullname:function(){
-      return this.firstname+' '+this.lastname
-    }
-  },
+        gotoByurl(url){
+          this.$router.push(url)
+        }
 
 
-  watch: {
-    firstname: function(val){
-      this.fullnameWatch = val + ' ' +this.lastname
-    },
-
-    lastname: function(val){
-      this.fullnameWatch = this.firstname+' '+val
-    }
+  //   addUser(){
+  //     this.userList.push(this.name)
+  //     this.name = ''
+  //   },
+  //   changeMsg(){
+  //     this.msg = "fyh"
+  //   },
+  //
+  //   getFullName(){
+  //     return this.firstname+' '+this.lastname
+  //   }
+  // },
+  //
+  // computed:{
+  //   fullname:function(){
+  //     return this.firstname+' '+this.lastname
+  //   }
+  // },
+  //
+  //
+  // watch: {
+  //   firstname: function(val){
+  //     this.fullnameWatch = val + ' ' +this.lastname
+  //   },
+  //
+  //   lastname: function(val){
+  //     this.fullnameWatch = this.firstname+' '+val
+  //   }
   }
 }
 </script>
